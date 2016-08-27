@@ -32,18 +32,6 @@ public class BootStrapPageGeneratorTests extends CustomClass {
 	public void testBuildPageContentArgs() throws IOException {
 		gbpg = new GenericBootStrapPageGenerator();
 		
-		String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">" +
-				"<div class=\"container-fluid\">" +
-					"<div class=\"navbar-header\">" +
-						"<span class=\"navbar-brand\" id=\"navbarheadertop\">BootStrap Page Generator Test</span>" +
-					"</div>" +
-					"<ul class=\"nav navbar-nav\">" +
-						"<li><a id=\"about\" class=\"noanchor\" href=\"#\">About</a></li>" +
-						"<li><a id=\"map\" class=\"anchor\" href=\"map.html\">Map</a></li>" +
-					"</ul>" +					
-				"</div>" +
-			"</nav>";
-		
 		String[] content = new String[] {"<main class=\"content\" id=\"content\">" +
 				"<div class=\"row\">" +	
 					"<div class=\"col-sm-12\">" +
