@@ -15,6 +15,55 @@ public class ElementGeneratorTests extends CustomClass {
 	ElementGenerator gen;
 	String ud = GlobalConstants.USRDIR;
 	String uh = GlobalConstants.USRHOME;
+	
+	@Test
+	public void testPageGenerator() throws IOException {
+		gen = new ElementGenerator();
+		
+		// head elements
+		String[] headElements = new String[] {
+				"<script src=\"url1\"></script>",
+				"<script src=\"url2\"></script>",
+				"<title>HTML Generator</title>"
+		};		
+
+		// body header settings		
+		List<String> headerInnerHtml = new ArrayList<String>() {};		
+		String[] headerInnerText = new String[] {};		
+		String[] headerElements = new String[] {};		
+		String header = gen.makeHeader(headerInnerHtml, headerInnerText, headerElements);
+		
+		
+		// bottom script and link tags
+		String[] bottomElements = new String[] {
+				"<link src=\"url88\" rel=\"stylesheet\" />",
+				"<script src=\"url3\"></script>",
+				"<script src=\"url44\"></script>"
+		};
+		
+		// body tag settings
+		List<String> bodySettings = new ArrayList<String>();
+			bodySettings.add("class=\"container\"");
+		
+		// body child elements
+		String bodyElements[] = new String[] {};
+		
+		// page components
+		String head = gen.makeHead(headElements);
+		String body = gen.makeBody(bodySettings,bodyElements);
+		String page = gen.makePage(head, body, bottomElements);
+		
+		String[]pageB = page.split("<br>");
+		List<String> newPage = new ArrayList<String>();
+		
+		for (String p:pageB) {
+			println(p);
+			newPage.add(p);
+		}
+		
+		TextfileOverwriter.overwrite(ud + "log1", newPage, ".html");
+	}
+
 		
 	@Test
 	public void testBootStrapPageGenerator() throws IOException {
@@ -49,6 +98,7 @@ public class ElementGeneratorTests extends CustomClass {
 					"</div>" +
 					"<div class=\"col-sm-9\">" +
 						"<div class=\"jumbotron\"></div>" +
+					"</div>" +
 				"</div>";
 		
 		List<String> headerInnerHtml = new ArrayList<String>() {};		
@@ -59,9 +109,7 @@ public class ElementGeneratorTests extends CustomClass {
 		
 		// bottom script and link tags
 		String[] bottomElements = new String[] {
-				"<link rel=\"stylesheet\" href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/quauab/css/style_a.css\">",
-				"<script src=\"url3\"></script>",
-				"<script src=\"url44\"></script>"
+				"<link rel=\"stylesheet\" href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/quauab/css/style_a.css\">"				
 		};
 		
 		// body tag settings
@@ -84,7 +132,7 @@ public class ElementGeneratorTests extends CustomClass {
 			newPage.add(p);
 		}
 		
-		TextfileOverwriter.overwrite(ud + "log", newPage, ".html");
+		TextfileOverwriter.overwrite(ud + "log2", newPage, ".html");
 	}
 
 }
