@@ -61,7 +61,7 @@ public class ElementGeneratorTests extends CustomClass {
 			newPage.add(p);
 		}
 		
-		TextfileOverwriter.overwrite(ud + "log1", newPage, ".html");
+		TextfileOverwriter.overwrite(uh + "log1", newPage, ".html");
 	}
 		
 	@Test
@@ -125,7 +125,7 @@ public class ElementGeneratorTests extends CustomClass {
 			newPage.add(p);
 		}
 		
-		TextfileOverwriter.overwrite(ud + "log2", newPage, ".html");
+		TextfileOverwriter.overwrite(uh + "log2", newPage, ".html");
 	}
 
 	@Test
@@ -189,6 +189,6 @@ public class ElementGeneratorTests extends CustomClass {
 			newPage.add(p);
 		}
 		
-		TextfileOverwriter.overwrite(ud + "log3", newPage, ".html");
+		TextfileOverwriter.overwrite(uh + "log3", newPage, ".html");
 	}
 }
