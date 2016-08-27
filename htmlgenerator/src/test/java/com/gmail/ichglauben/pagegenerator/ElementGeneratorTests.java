@@ -24,7 +24,7 @@ public class ElementGeneratorTests extends CustomClass {
 		String[] headElements = new String[] {
 				"<script src=\"url1\"></script>",
 				"<script src=\"url2\"></script>",
-				"<title>Deez Nuts</title>"
+				"<title>HTML Generator</title>"
 		};		
 
 		// body header settings		
