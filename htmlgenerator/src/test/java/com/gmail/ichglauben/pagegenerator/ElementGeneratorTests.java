@@ -98,13 +98,7 @@ public class ElementGeneratorTests extends CustomClass {
 					"<div class=\"col-sm-9\">" +
 						"<div class=\"jumbotron\"></div>" +
 					"</div>" +
-				"</div>";
-		
-		List<String> headerInnerHtml = new ArrayList<String>() {};		
-		String[] headerInnerText = new String[] {};		
-		String[] headerElements = new String[] {};		
-		String header = gen.makeHeader(headerInnerHtml, headerInnerText, headerElements);
-		
+				"</div>";		
 		
 		// bottom script and link tags
 		String[] bottomElements = new String[] {
