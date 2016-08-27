@@ -32,7 +32,7 @@ public class ElementGenerator {
 	 * @return String div*/
 	public String makeDiv(List<String> innerHtml, String[]innerText, String[]elements) {
 		String div = "<div ";
-		if (innerHtml.size() > 0) {
+		if (null != innerHtml && innerHtml.size() > 0) {
 			int i = 0;
 			for (String item : innerHtml) {
 				if (i < (innerHtml.size() - 1)) {
@@ -46,7 +46,7 @@ public class ElementGenerator {
 
 		div += "><br>";
 
-		if (innerText.length > 0) {
+		if (null != innerText && innerText.length > 0) {
 			int i = 0;
 			for (String item : innerText) {
 				if (i < (innerText.length - 1)) {
@@ -60,7 +60,7 @@ public class ElementGenerator {
 		
 		div += "<br>";
 
-		if (elements.length > 0) {
+		if (null != elements && elements.length > 0) {
 			int i = 0;
 			for (String item : elements) {
 				if (i < (elements.length - 1)) {
@@ -85,7 +85,7 @@ public class ElementGenerator {
 	public String makeHeader(List<String> innerHtml, String[]innerText, String[]elements) {
 		String header = "<header ";
 		
-		if (innerHtml.size() > 0) {
+		if (null != innerHtml && innerHtml.size() > 0) {
 			int i = 0;
 			for (String item:innerHtml) {
 				if (i < (innerHtml.size() - 1)) {
@@ -99,7 +99,7 @@ public class ElementGenerator {
 		
 		header += "><br>";
 		
-		if (innerText.length > 0) {
+		if (null != innerText && innerText.length > 0) {
 			int i = 0;
 			for (String item:innerText) {
 				if (i < (innerText.length - 1)) {
@@ -113,7 +113,7 @@ public class ElementGenerator {
 		
 		header += "<br>";
 		
-		if (elements.length > 0) {
+		if (null != elements && elements.length > 0) {
 			int i = 0;
 			for (String item:elements) {
 				if (i < (elements.length - 1)) {
@@ -137,7 +137,7 @@ public class ElementGenerator {
 	public String makeParagraph(List<String> innerHtml, String[]innerText) {
 		String para = "<p ";
 		
-		if (innerHtml.size() > 0) {
+		if (null != innerHtml && innerHtml.size() > 0) {
 			int i = 0;
 			for (String item:innerHtml) {
 				if (i < (innerHtml.size() - 1)) {
@@ -151,7 +151,7 @@ public class ElementGenerator {
 		
 		para += "><br>";
 		
-		if (innerText.length > 0) {
+		if (null != innerText && innerText.length > 0) {
 			int i = 0;
 			for (String item:innerText) {
 				if (i < (innerText.length - 1)) {
@@ -176,7 +176,7 @@ public class ElementGenerator {
 	public String makeSpan(List<String> innerHtml, String[]innerText, String[]elements) {
 		String span = "<span ";
 		
-		if (innerHtml.size() > 0) {
+		if (null != innerHtml && innerHtml.size() > 0) {
 			int i = 0;
 			for (String item:innerHtml) {
 				if (i < (innerHtml.size() - 1)) {
@@ -190,7 +190,7 @@ public class ElementGenerator {
 		
 		span += "><br>";
 		
-		if (innerText.length > 0) {
+		if (null != innerText && innerText.length > 0) {
 			int i = 0;
 			for (String item:innerText) {
 				if (i < (innerText.length - 1)) {
@@ -204,7 +204,7 @@ public class ElementGenerator {
 		
 		span += "<br>";
 		
-		if (elements.length > 0) {
+		if (null != elements && elements.length > 0) {
 			int i = 0;
 			for (String item:elements) {
 				if (i < (elements.length - 1)) {
@@ -229,7 +229,7 @@ public class ElementGenerator {
 		head += "<meta charset=\"UTF-8\"><br>";
 		head += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><br>";
 		
-		if (elements.length > 0) {
+		if (null != elements && elements.length > 0) {
 			int i = 0;
 			for (String item:elements) {
 				if (i < (elements.length - 1)) {
@@ -253,7 +253,7 @@ public class ElementGenerator {
 	public String makeBody(List<String> innerHtml, String[]elements) {
 		String body = "<body ";
 		
-		if (innerHtml.size() > 0) {
+		if (null != innerHtml && innerHtml.size() > 0) {
 			int i = 0;
 			for (String item:innerHtml) {
 				if (i < (innerHtml.size() - 1)) {
@@ -267,7 +267,7 @@ public class ElementGenerator {
 		
 		body += "><br>";
 		
-		if (elements.length > 0) {
+		if (null != elements && elements.length > 0) {
 			int i = 0;
 			for (String item:elements) {
 				if (i < (elements.length - 1)) {
