@@ -63,7 +63,6 @@ public class ElementGeneratorTests extends CustomClass {
 		
 		TextfileOverwriter.overwrite(ud + "log1", newPage, ".html");
 	}
-
 		
 	@Test
 	public void testBootStrapPageGenerator() throws IOException {
