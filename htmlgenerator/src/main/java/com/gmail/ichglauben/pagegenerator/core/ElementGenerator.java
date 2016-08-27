@@ -246,6 +246,31 @@ public class ElementGenerator {
 		return head;
 	}
 	
+	/**Returns a head element.
+	 * @param elements String List
+	 * @return String head*/
+	public String makeHead(List<String>elements) {
+		String head = "<head><br>";
+		head += "<meta charset=\"UTF-8\"><br>";
+		head += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><br>";
+		
+		if (null != elements && elements.size() > 0) {
+			int i = 0;
+			for (String item:elements) {
+				if (i < (elements.size() - 1)) {
+					head += item + "<br>";
+				} else {
+					head += item;
+				}
+				i++;
+			}
+		}
+
+		head += "<br></head>";
+		
+		return head;
+	}
+	
 	/**Returns a body element.
 	 * @param List<String> innerHtml
 	 * @param String[] elements
