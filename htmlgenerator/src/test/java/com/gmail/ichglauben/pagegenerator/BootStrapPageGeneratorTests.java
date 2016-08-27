@@ -32,23 +32,23 @@ public class BootStrapPageGeneratorTests extends CustomClass {
 	public void testBuildPageContentArgs() throws IOException {
 		gbpg = new GenericBootStrapPageGenerator();
 		
-		String[] content = new String[] {"<main class=\"content\" id=\"content\">" +
-				"<div class=\"row\">" +	
-					"<div class=\"col-sm-12\">" +
-						"<div class=\"jumbotron\">" +
-						"<h3 id=\"header\">" +
-						"BootStrap Generated Page</h3>" +
-						"</div>" +
-					"</div>" +
-				"</div>"};
+		String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">"
+				+ "<div class=\"container-fluid\">" + "<div class=\"navbar-header\">"
+				+ "<span class=\"navbar-brand\" id=\"navbarheadertop\">BootStrap Page Generator Test</span>" + "</div>"
+				+ "<ul class=\"nav navbar-nav\">"
+				+ "<li><a target=\"_blank\" id=\"about\" class=\"noanchor\" href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/rick/indexbs.html\">About Author</a></li>"
+				+ "</ul></div></nav>";
+
+		String[] content = new String[] { nav,"<main class=\"content\" id=\"content\">" + "<div class=\"row\">"
+				+ "<div class=\"col-sm-12\">" + "<div class=\"jumbotron\">" + "<h3 id=\"header\">"
+				+ "BootStrap Generated Page</h3>" + "</div>" + "</div>" + "</div>" };
 		
 		String[] bottomElements = new String[] {
-				"<link href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/resources/java/css/style_a.css\" rel=\"stylesheet\"/>"				
-		};
+				"<link href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/resources/java/css/style_a.css\" rel=\"stylesheet\"/>" };
 		
 		List<String> data = new ArrayList<String>();
 		
-		for (String s:gbpg.buildPage(content, bottomElements, "BootStrap Page").split("<br>")) {
+		for (String s : gbpg.buildPage(content, bottomElements, "BootStrap Page").split("<br>")) {
 			data.add(s);
 		}
 		
