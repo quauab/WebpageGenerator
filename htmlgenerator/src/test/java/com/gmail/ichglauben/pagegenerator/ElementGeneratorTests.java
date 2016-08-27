@@ -17,17 +17,40 @@ public class ElementGeneratorTests extends CustomClass {
 	String uh = GlobalConstants.USRHOME;
 		
 	@Test
-	public void testPageGenerator() throws IOException {
+	public void testBootStrapPageGenerator() throws IOException {
 		gen = new ElementGenerator();
 		
 		// head elements
 		String[] headElements = new String[] {
-				"<script src=\"url1\"></script>",
-				"<script src=\"url2\"></script>",
+				"<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">",
+				"<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>",
+				"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>",
 				"<title>HTML Generator</title>"
 		};		
 
-		// body header settings		
+		// navigation bar		
+		String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">" +
+						"<div class=\"container-fluid\">" +
+							"<div class=\"navbar-header\">" +
+								"<span class=\"navbar-brand\" id=\"navbarheadertop\">Report</span>" +
+							"</div>" +
+							"<ul class=\"nav navbar-nav\">" +
+								"<li><a id=\"about\" class=\"noanchor\" href=\"#\">About</a></li>" +
+								"<li><a id=\"map\" class=\"anchor\" href=\"map.html\">Map</a></li>" +
+							"</ul>" +					
+						"</div>" +
+					"</nav>";
+		
+		// main content
+		String content = "<main class=\"content\" id=\"content\">" +
+				"<div class=\"row\">" +	
+					"<div class=\"col-sm-3\">" +
+						"<div class=\"jumbotron\"></div>" +
+					"</div>" +
+					"<div class=\"col-sm-9\">" +
+						"<div class=\"jumbotron\"></div>" +
+				"</div>";
+		
 		List<String> headerInnerHtml = new ArrayList<String>() {};		
 		String[] headerInnerText = new String[] {};		
 		String[] headerElements = new String[] {};		
@@ -36,7 +59,7 @@ public class ElementGeneratorTests extends CustomClass {
 		
 		// bottom script and link tags
 		String[] bottomElements = new String[] {
-				"<link src=\"url88\" rel=\"stylesheet\" />",
+				"<link rel=\"stylesheet\" href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/quauab/css/style_a.css\">",
 				"<script src=\"url3\"></script>",
 				"<script src=\"url44\"></script>"
 		};
@@ -46,7 +69,7 @@ public class ElementGeneratorTests extends CustomClass {
 			bodySettings.add("class=\"container\"");
 		
 		// body child elements
-		String bodyElements[] = new String[] {};
+		String bodyElements[] = new String[] {nav,content};
 		
 		// page components
 		String head = gen.makeHead(headElements);
