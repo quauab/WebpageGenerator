@@ -1,6 +1,6 @@
 # Generic Webpage Generator
 
-Generator HTML elements that make up a web page.
+Generator a web page base from arguments.
 
 <h2>Dependencies</h2>
 <ul>
