@@ -7,38 +7,6 @@ public class WebpageGenerator {
 	
 	public WebpageGenerator() {}
 	
-	/**Returns innerHtml settings.
-	 * @param String id
-	 * @param String classSetting
-	 * @return List<String> settings*/
-	public List<String> makeInnerHtml(String id, String classSetting) {
-		List<String> settings = new ArrayList<String>();
-		
-		if (null != id && id.length() > 0) {
-			settings.add(id);
-		}
-		
-		if (null != classSetting && classSetting.length() > 0) {
-			settings.add(classSetting);
-		}
-		
-		return settings;
-	}
-	
-	/**Returns innerHtml settings.
-	 * @param settings String[]
-	 * @return List<String> settings*/
-	public List<String> makeInnerHtml(String[]settings) {
-		List<String> config = new ArrayList<String>();		
-		if (null != settings && settings.length > 0) {
-			for (String s:settings) {
-				if (null != s && s.length() > 0)
-					config.add(s);
-			}
-		}		
-		return config;
-	}
-	
 	/**Returns a div element.
 	 * @param innerHtml String List The div's property settings
 	 * @param innerText String[] The div's text node children
