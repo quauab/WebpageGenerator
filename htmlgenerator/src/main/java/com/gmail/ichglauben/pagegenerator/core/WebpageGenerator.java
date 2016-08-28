@@ -40,9 +40,9 @@ public class WebpageGenerator {
 	}
 	
 	/**Returns a div element.
-	 * @param String[] innerHtml
-	 * @param String[] innerText
-	 * @param String[] elements
+	 * @param innerHtml String List The div's property settings
+	 * @param innerText String[] The div's text node children
+	 * @param elements String[] The div's children elements
 	 * @return String div*/
 	public String makeDiv(List<String> innerHtml, String[]innerText, String[]elements) {
 		String div = "<div ";
@@ -90,63 +90,168 @@ public class WebpageGenerator {
 
 		return div;
 	}
+	
+	/**Returns a div element.
+	 * @param innerHtml String[] The div's property settings
+	 * @param innerText String[] The div's text node children
+	 * @param elements String[] The div's children elements
+	 * @return String div*/
+	public String makeDiv(String[] innerHtml, String[]innerText, String[]elements) {
+		String div = "<div ";
+		if (null != innerHtml && innerHtml.length > 0) {
+			int i = 0;
+			for (String item : innerHtml) {
+				if (i < (innerHtml.length - 1)) {
+					div += item + " ";
+				} else {
+					div += item;
+				}
+				i++;
+			}
+		}
+
+		div += "><br>";
+
+		if (null != innerText && innerText.length > 0) {
+			int i = 0;
+			for (String item : innerText) {
+				if (i < (innerText.length - 1)) {
+					div += item + "<br>";
+				} else {
+					div += item;
+				}
+				i++;
+			}
+		}
+		
+		div += "<br>";
+
+		if (null != elements && elements.length > 0) {
+			int i = 0;
+			for (String item : elements) {
+				if (i < (elements.length - 1)) {
+					div += item + "<br>";
+				} else {
+					div += item;
+				}
+				i++;
+			}
+		}
+
+		div += "</div>";
+
+		return div;
+	}
 
 	/**Returns a div element.
-	 * @param List<String> innerHtml
-	 * @param String[] innerText
-	 * @param String[] elements
+	 * @param innerHtml String List The header element's property settings
+	 * @param innerText String[] The header's text node children
+	 * @param elements String[] The header's children elements
 	 * @return String div*/
 	public String makeHeader(List<String> innerHtml, String[]innerText, String[]elements) {
-		String header = "<header ";
+		String div = "<div ";
 		
 		if (null != innerHtml && innerHtml.size() > 0) {
 			int i = 0;
 			for (String item:innerHtml) {
 				if (i < (innerHtml.size() - 1)) {
-					header += item + " ";
+					div += item + " ";
 				} else {
-					header += item;
+					div += item;
 				}
 				i++;
 			}
 		}
 		
-		header += "><br>";
+		div += "><br>";
 		
 		if (null != innerText && innerText.length > 0) {
 			int i = 0;
 			for (String item:innerText) {
 				if (i < (innerText.length - 1)) {
-					header += item + "<br>";
+					div += item + "<br>";
 				} else {
-					header += item;
+					div += item;
 				}
 				i++;
 			}
 		}
 		
-		header += "<br>";
+		div += "<br>";
 		
 		if (null != elements && elements.length > 0) {
 			int i = 0;
 			for (String item:elements) {
 				if (i < (elements.length - 1)) {
-					header += item + "<br>";
+					div += item + "<br>";
 				} else {
-					header += item;
+					div += item;
 				}
 				i++;
 			}
 		}
 		
-		header += "</header>";
+		div += "</div>";
 		
-		return header;
+		return div;
+	}
+	
+	/**Returns a div element.
+	 * @param innerHtml String[] The header element's property settings
+	 * @param innerText String[] The header's text node children
+	 * @param elements String[] The header's children elements
+	 * @return String div*/
+	public String makeHeader(String[] innerHtml, String[]innerText, String[]elements) {
+		String div = "<div ";
+		
+		if (null != innerHtml && innerHtml.length > 0) {
+			int i = 0;
+			for (String item:innerHtml) {
+				if (i < (innerHtml.length - 1)) {
+					div += item + " ";
+				} else {
+					div += item;
+				}
+				i++;
+			}
+		}
+		
+		div += "><br>";
+		
+		if (null != innerText && innerText.length > 0) {
+			int i = 0;
+			for (String item:innerText) {
+				if (i < (innerText.length - 1)) {
+					div += item + "<br>";
+				} else {
+					div += item;
+				}
+				i++;
+			}
+		}
+		
+		div += "<br>";
+		
+		if (null != elements && elements.length > 0) {
+			int i = 0;
+			for (String item:elements) {
+				if (i < (elements.length - 1)) {
+					div += item + "<br>";
+				} else {
+					div += item;
+				}
+				i++;
+			}
+		}
+		
+		div += "</div>";
+		
+		return div;
 	}
 	
 	/**Returns a header element.
-	 * @param List<String> innerHtml
-	 * @param String[] innerText
+	 * @param innerHtml String List The paragraph element's property settings
+	 * @param innerText String[] The paragraph element's text node children
 	 * @return String header*/
 	public String makeParagraph(List<String> innerHtml, String[]innerText) {
 		String para = "<p ";
@@ -182,10 +287,48 @@ public class WebpageGenerator {
 		return para;
 	}
 	
+	/**Returns a header element.
+	 * @param innerHtml String[] The paragraph element's property settings
+	 * @param innerText String[] The paragraph element's text node children
+	 * @return String header*/
+	public String makeParagraph(String[] innerHtml, String[]innerText) {
+		String para = "<p ";
+		
+		if (null != innerHtml && innerHtml.length > 0) {
+			int i = 0;
+			for (String item:innerHtml) {
+				if (i < (innerHtml.length - 1)) {
+					para += item + " ";
+				} else {
+					para += item;
+				}
+				i++;
+			}
+		}
+		
+		para += "><br>";
+		
+		if (null != innerText && innerText.length > 0) {
+			int i = 0;
+			for (String item:innerText) {
+				if (i < (innerText.length - 1)) {
+					para += "<br>" + item + "<br>";
+				} else {
+					para += item;
+				}
+				i++;
+			}
+		}
+		
+		para += "<br></p>";
+		
+		return para;
+	}
+	
 	/**Returns a span element.
-	 * @param List<String> innerHtml
-	 * @param String[] innerText
-	 * @param String[] elements
+	 * @param innerHtml String List The span's property settings
+	 * @param innerText  String[] The sapn's text node children
+	 * @param elements String[] The span's children
 	 * @return String span*/
 	public String makeSpan(List<String> innerHtml, String[]innerText, String[]elements) {
 		String span = "<span ";
@@ -235,8 +378,61 @@ public class WebpageGenerator {
 		return span;
 	}
 	
+	/**Returns a span element.
+	 * @param innerHtml String[] The span's property settings
+	 * @param innerText  String[] The sapn's text node children
+	 * @param elements String[] The span's children
+	 * @return String span*/
+	public String makeSpan(String[] innerHtml, String[]innerText, String[]elements) {
+		String span = "<span ";
+		
+		if (null != innerHtml && innerHtml.length > 0) {
+			int i = 0;
+			for (String item:innerHtml) {
+				if (i < (innerHtml.length - 1)) {
+					span += item + " ";
+				} else {
+					span += item;
+				}
+				i++;
+			}
+		}
+		
+		span += "><br>";
+		
+		if (null != innerText && innerText.length > 0) {
+			int i = 0;
+			for (String item:innerText) {
+				if (i < (innerText.length - 1)) {
+					span += item + "<br>";
+				} else {
+					span += item;
+				}
+				i++;
+			}
+		}
+		
+		span += "<br>";
+		
+		if (null != elements && elements.length > 0) {
+			int i = 0;
+			for (String item:elements) {
+				if (i < (elements.length - 1)) {
+					span += item + "<br>";
+				} else {
+					span += item;
+				}
+				i++;
+			}
+		}
+		
+		span += "<br></span>";
+		
+		return span;
+	}
+	
 	/**Returns a head element.
-	 * @param String[] elements
+	 * @param elements String[] The head element's children
 	 * @return String head*/
 	public String makeHead(String[]elements) {
 		String head = "<head><br>";
@@ -258,7 +454,7 @@ public class WebpageGenerator {
 	}
 	
 	/**Returns a head element.
-	 * @param elements String List
+	 * @param elements String List The head element's children
 	 * @return String head*/
 	public String makeHead(List<String>elements) {
 		String head = "<head><br>";
@@ -280,8 +476,8 @@ public class WebpageGenerator {
 	}
 	
 	/**Returns a body element.
-	 * @param List<String> innerHtml
-	 * @param String[] elements
+	 * @param innerHtml String List The body's property settings
+	 * @param elements String[] The body elements
 	 * @return String body*/
 	public String makeBody(List<String> innerHtml, String[]elements) {
 		String body = "<body ";		
@@ -313,8 +509,8 @@ public class WebpageGenerator {
 	}
 	
 	/**Returns a body element.
-	 * @param List<String> innerHtml
-	 * @param String[] elements
+	 * @param innerHtml String[] The body's property settings
+	 * @param elements String[] The body elements
 	 * @return String body*/
 	public String makeBody(String[] innerHtml, String[]elements) {
 		String body = "<body ";		

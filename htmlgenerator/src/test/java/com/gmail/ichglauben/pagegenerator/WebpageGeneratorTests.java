@@ -11,61 +11,100 @@ import com.gmail.ichglauben.pagegenerator.core.utils.CustomClass;
 import com.gmail.ichglauben.pagegenerator.core.utils.GlobalConstants;
 import com.gmail.ichglauben.textfilewriter.core.concretes.TextfileOverwriter;
 
-public class ElementGeneratorTests extends CustomClass {
+public class WebpageGeneratorTests extends CustomClass {
 	WebpageGenerator wg;
 	String ud = GlobalConstants.USRDIR;
 	String uh = GlobalConstants.USRHOME;
 	
 	@Test
-	public void testPageGenerator() throws IOException {
+	public void testPageGeneratorLists() throws IOException {
 		wg = new WebpageGenerator();
-		
-		// head elements
-		String[] headElements = new String[] {
-				"<script src=\"url1\"></script>",
-				"<script src=\"url2\"></script>",
-				"<title>HTML Generator</title>"
-		};		
 
-		// body header settings		
-		List<String> headerInnerHtml = new ArrayList<String>() {};		
-		String[] headerInnerText = new String[] {};		
-		String[] headerElements = new String[] {};		
-		String header = wg.makeHeader(headerInnerHtml, headerInnerText, headerElements);
-		
-		
-		// bottom script and link tags
-		String[] bottomElements = new String[] {
-				"<link src=\"url88\" rel=\"stylesheet\" />",
-				"<script src=\"url3\"></script>",
-				"<script src=\"url44\"></script>"
-		};
-		
-		// body tag settings
-		List<String> bodySettings = new ArrayList<String>();
-			bodySettings.add("class=\"container\"");
-		
+		/** head element */
+
+		// head's children
+		String[] headElements = new String[] { "<script src=\"url1\"></script>", "<script src=\"url2\"></script>",
+				"<title>HTML Generator</title>" };
+
+		List<String> headList = new ArrayList<String>();
+
+		for (String s : headElements) {
+			headList.add(s);
+		}
+
+		/** body element */
+
+		// body element
+		List<String> bodySettingsList = new ArrayList<String>();
+		bodySettingsList.add("class=\"container\"");
+
 		// body child elements
 		String bodyElements[] = new String[] {};
-		
-		// page components
-		String head = wg.makeHead(headElements);
-		String body = wg.makeBody(bodySettings,bodyElements);
+
+		/** scripts & css links added after the body's end tag */
+
+		// bottom script and link tags
+		String[] bottomElements = new String[] { "<link src=\"url88\" rel=\"stylesheet\" />",
+				"<script src=\"url3\"></script>", "<script src=\"url44\"></script>" };
+
+		// page method's parameters
+		String head = wg.makeHead(headList);
+		String body = wg.makeBody(bodySettingsList, bodyElements);
 		String page = wg.makePage(head, body, bottomElements);
-		
-		String[]pageB = page.split("<br>");
+
+		String[] pageB = page.split("<br>");
 		List<String> newPage = new ArrayList<String>();
-		
-		for (String p:pageB) {
+
+		for (String p : pageB) {
 			println(p);
 			newPage.add(p);
 		}
-		
+
+		TextfileOverwriter.overwrite(uh + "log1", newPage, ".html");
+	}
+	
+	@Test
+	public void testPageGeneratorStringArrays() throws IOException {
+		wg = new WebpageGenerator();
+
+		/** head element */
+
+		// head's children
+		String[] headArray = new String[] { "<script src=\"url1\"></script>", "<script src=\"url2\"></script>",
+				"<title>HTML Generator</title>" };		
+
+		/** body element */
+
+		// body's settings		
+		String[] bodySettingsArray = new String[] {"class=\"container\""};
+
+		// body child elements
+		String bodyElements[] = new String[] {};
+
+		/** scripts & css links added after the body's end tag */
+
+		// bottom script and link tags
+		String[] bottomElements = new String[] { "<link src=\"url88\" rel=\"stylesheet\" />",
+				"<script src=\"url3\"></script>", "<script src=\"url44\"></script>" };
+
+		// page method's parameters
+		String head = wg.makeHead(headArray);
+		String body = wg.makeBody(bodySettingsArray, bodyElements);
+		String page = wg.makePage(head, body, bottomElements);
+
+		String[] pageB = page.split("<br>");
+		List<String> newPage = new ArrayList<String>();
+
+		for (String p : pageB) {
+			println(p);
+			newPage.add(p);
+		}
+
 		TextfileOverwriter.overwrite(uh + "log1", newPage, ".html");
 	}
 		
 	@Test
-	public void testBootStrapPageGenerator() throws IOException {
+	public void testPageGeneratorPopulatedWithElements() throws IOException {
 		wg = new WebpageGenerator();
 		
 		// head elements
@@ -171,14 +210,11 @@ public class ElementGeneratorTests extends CustomClass {
 		
 		// body tag settings
 		List<String> bodySettings = new ArrayList<String>();
-			bodySettings.add("class=\"container\"");
-		
-		// body child elements
-		String bodyElements[] = new String[] {nav,content};
+			bodySettings.add("class=\"container\"");	
 		
 		// page components
 		String head = wg.makeHead(headElements);
-		String body = wg.makeBody(bodySettings,bodyElements);
+		String body = wg.makeBody(bodySettings,null);
 		String page = wg.makePage(head, body, null);
 		
 		String[]pageB = page.split("<br>");
@@ -191,4 +227,5 @@ public class ElementGeneratorTests extends CustomClass {
 		
 		TextfileOverwriter.overwrite(uh + "log3", newPage, ".html");
 	}
+	
 }
