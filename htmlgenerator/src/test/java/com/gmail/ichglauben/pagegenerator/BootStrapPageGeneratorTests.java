@@ -68,7 +68,7 @@ public class BootStrapPageGeneratorTests extends CustomClass {
 		
 		String main = "<main class=\"content\" id=\"content\">" +
 				"<div class=\"row\">" + "<div class=\"col-sm-12\">" +
-				"<div class=\"jumbotron\">" + "<h3 id=\"header\">" + "JUnit Version 4.12</h3><ul>";
+				"<div class=\"jumbotron\">" + "<h2 id=\"header\">" + "JUnit Version 4.12</h2><ul>";
 
 		String className = "<li><b>Test Class Name:</b> " + getClass().getSimpleName() + "</li>";
 		String classCanonicalName = "<li><b>Test Class Canonical Name:</b> " + getClass().getCanonicalName() + "</li>";
