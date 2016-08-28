@@ -1,6 +1,6 @@
 # Generic Webpage Generator
 
-Generator a web page base from arguments.
+Generator a web page based from parameters.
 
 <h2>Dependencies</h2>
 <ul>
