@@ -1,4 +1,4 @@
-# Html Element Generator
+# Generic Webpage Generator
 
 Generator HTML elements that make up a web page.
 
