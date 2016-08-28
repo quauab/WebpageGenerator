@@ -8,21 +8,24 @@ public class GenericBootStrapPageGenerator {
 	String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">" +
 			"<div class=\"container-fluid\">" +
 				"<div class=\"navbar-header\">" +
-					"<span class=\"navbar-brand\" id=\"navbarheadertop\">Report</span>" +
+					"<span class=\"navbar-brand\" id=\"navbarheadertop\">HTML Element Generator</span>" +
 				"</div>" +
 				"<ul class=\"nav navbar-nav\">" +
-					"<li><a id=\"about\" class=\"noanchor\" href=\"#\">About</a></li>" +
-					"<li><a id=\"map\" class=\"anchor\" href=\"map.html\">Map</a></li>" +
+					"<li><a target=\"_blank\" id=\"about\" class=\"noanchor\" href=\"https://github.com/quauab?tab=repositories\">More Libraries</a></li>" +
 				"</ul>" +					
 			"</div>" +
 		"</nav>";
 	String content = "<main class=\"content\" id=\"content\">" +
 			"<div class=\"row\">" +	
-				"<div class=\"col-sm-3\">" +
-					"<div class=\"jumbotron\"></div>" +
-				"</div>" +
-				"<div class=\"col-sm-9\">" +
-					"<div class=\"jumbotron\"></div>" +
+				"<div class=\"col-sm-12\">" +
+					"<div class=\"jumbotron\">" + 
+						"<h3>Generic Webpage Generator - Java Library</h3><br>" +
+						"<p style=\"text-align:center\">Generate HTML elements that make up a webpage</p>" +
+						"<h2>Dependencies</h2>" +
+						"<ul>" +
+							"<li><a target=\"_blank\" href=\"https://github.com/quauab/TextFileWriter\">TextfileWriter</a></li>" +
+						"</ul>" +
+					"</div>" +
 				"</div>" +
 			"</div>";
 	String[] bottomElements = new String[] {
@@ -53,19 +56,15 @@ public class GenericBootStrapPageGenerator {
 	
 	public String buildPage() {
 		List<String> bodySettings = new ArrayList<String>();
-		bodySettings.add("class=\"container\"");
-		
+		bodySettings.add("class=\"container\"");		
 		String head = wg.makeHead(new String[] {
 				"<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">",
 				"<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>",
 				"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>",
-				"<title>HTML Generator</title>"
-		});
-		
-		String body = wg.makeBody(bodySettings, bodyElements);
-		
+				"<title>A Java Webpage Generator</title>"
+		});		
+		String body = wg.makeBody(bodySettings, bodyElements);		
 		String page = wg.makePage(head, body, bottomElements);
-
 		return page;
 	}
 	
