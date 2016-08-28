@@ -1,6 +1,6 @@
 # Generic Webpage Generator
 
-Generator a web page with content.
+Generate a web page with content.
 
 <h2>Dependencies</h2>
 <ul>
