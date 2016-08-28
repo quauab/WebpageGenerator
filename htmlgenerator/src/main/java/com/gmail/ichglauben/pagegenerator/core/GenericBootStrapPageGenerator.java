@@ -68,12 +68,5 @@ public class GenericBootStrapPageGenerator {
 		return page;
 	}
 	
-	private String buildRow(int []cols,String[]contents) {
-		String row = "";
-				
-		
-		return row;
-	}
-	
 	public String toString() { return "BootStrap Page Generator"; }
 }
