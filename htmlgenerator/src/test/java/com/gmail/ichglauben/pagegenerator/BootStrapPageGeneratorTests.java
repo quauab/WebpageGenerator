@@ -29,7 +29,7 @@ public class BootStrapPageGeneratorTests extends CustomClass {
 	}
 	
 	@Test
-	public void testBuildPageContentArgs() throws IOException {
+	public void testBuildPageContentArgsMethod() throws IOException {
 		gbpg = new GenericBootStrapPageGenerator();
 		
 		String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">"
@@ -53,6 +53,43 @@ public class BootStrapPageGeneratorTests extends CustomClass {
 		}
 		
 		TextfileOverwriter.overwrite(uh + "index", data, ".html");
+	}
+	
+	@Test
+	public void testGenericBootStrapPageGenerator() throws IOException {
+		gbpg = new GenericBootStrapPageGenerator();
+		
+		String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">"
+				+ "<div class=\"container-fluid\">" + "<div class=\"navbar-header\">"
+				+ "<span class=\"navbar-brand\" id=\"navbarheadertop\">Sample Report Page</span>" + "</div>"
+				+ "<ul class=\"nav navbar-nav\">"
+				+ "<li><a target=\"_blank\" id=\"about\" class=\"anchor\" href=\"http://docs.oracle.com/javase/tutorial/index.html\">Java Tutorials</a></li>"
+				+ "</ul></div></nav>";
+		
+		String main = "<main class=\"content\" id=\"content\">" +
+				"<div class=\"row\">" + "<div class=\"col-sm-12\">" +
+				"<div class=\"jumbotron\">" + "<h3 id=\"header\">" + "JUnit Version 4.12</h3><ul>";
+
+		String className = "<li><b>Test Class Name:</b> " + getClass().getSimpleName() + "</li>";
+		String classCanonicalName = "<li><b>Test Class Canonical Name:</b> " + getClass().getCanonicalName() + "</li>";
+		String classLoader = "<li><b>Test Class Loader:</b> " + getClass().getClassLoader().toString() + "</li>";
+		String classType = "<li><b>Test Class Type:</b> " + getClass().getTypeName() + "</li>";
+		String classUnderTest = "<li><b>Class Under Test:</b> " + gbpg.getClass().getSimpleName() + "</li>";
+		
+		main += className + classCanonicalName + classLoader + classType + classUnderTest + "</ul></div></div</div></main>";
+
+		String[] content = new String[] { nav, main };
+		
+		String[] bottomElements = new String[] {
+				"<link href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/resources/java/css/style_a.css\" rel=\"stylesheet\"/>" };
+		
+		List<String> data = new ArrayList<String>();
+		
+		for (String s : gbpg.buildPage(content, bottomElements, "JUnit Test").split("<br>")) {
+			data.add(s);
+		}
+		
+		TextfileOverwriter.overwrite(uh + "report", data, ".html");
 	}
 
 }
