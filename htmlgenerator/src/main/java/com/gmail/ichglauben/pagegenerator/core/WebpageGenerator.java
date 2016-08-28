@@ -533,4 +533,5 @@ public class WebpageGenerator {
 		return page;
 	}
 	
+	public String toString() { return "Webpage Generator"; }
 }
