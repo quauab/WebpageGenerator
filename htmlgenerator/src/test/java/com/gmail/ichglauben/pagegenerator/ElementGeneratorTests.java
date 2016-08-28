@@ -12,13 +12,13 @@ import com.gmail.ichglauben.pagegenerator.core.utils.GlobalConstants;
 import com.gmail.ichglauben.textfilewriter.core.concretes.TextfileOverwriter;
 
 public class ElementGeneratorTests extends CustomClass {
-	WebpageGenerator gen;
+	WebpageGenerator wg;
 	String ud = GlobalConstants.USRDIR;
 	String uh = GlobalConstants.USRHOME;
 	
 	@Test
 	public void testPageGenerator() throws IOException {
-		gen = new WebpageGenerator();
+		wg = new WebpageGenerator();
 		
 		// head elements
 		String[] headElements = new String[] {
@@ -31,7 +31,7 @@ public class ElementGeneratorTests extends CustomClass {
 		List<String> headerInnerHtml = new ArrayList<String>() {};		
 		String[] headerInnerText = new String[] {};		
 		String[] headerElements = new String[] {};		
-		String header = gen.makeHeader(headerInnerHtml, headerInnerText, headerElements);
+		String header = wg.makeHeader(headerInnerHtml, headerInnerText, headerElements);
 		
 		
 		// bottom script and link tags
@@ -49,9 +49,9 @@ public class ElementGeneratorTests extends CustomClass {
 		String bodyElements[] = new String[] {};
 		
 		// page components
-		String head = gen.makeHead(headElements);
-		String body = gen.makeBody(bodySettings,bodyElements);
-		String page = gen.makePage(head, body, bottomElements);
+		String head = wg.makeHead(headElements);
+		String body = wg.makeBody(bodySettings,bodyElements);
+		String page = wg.makePage(head, body, bottomElements);
 		
 		String[]pageB = page.split("<br>");
 		List<String> newPage = new ArrayList<String>();
@@ -66,7 +66,7 @@ public class ElementGeneratorTests extends CustomClass {
 		
 	@Test
 	public void testBootStrapPageGenerator() throws IOException {
-		gen = new WebpageGenerator();
+		wg = new WebpageGenerator();
 		
 		// head elements
 		String[] headElements = new String[] {
@@ -113,9 +113,9 @@ public class ElementGeneratorTests extends CustomClass {
 		String bodyElements[] = new String[] {nav,content};
 		
 		// page components
-		String head = gen.makeHead(headElements);
-		String body = gen.makeBody(bodySettings,bodyElements);
-		String page = gen.makePage(head, body, bottomElements);
+		String head = wg.makeHead(headElements);
+		String body = wg.makeBody(bodySettings,bodyElements);
+		String page = wg.makePage(head, body, bottomElements);
 		
 		String[]pageB = page.split("<br>");
 		List<String> newPage = new ArrayList<String>();
@@ -130,7 +130,7 @@ public class ElementGeneratorTests extends CustomClass {
 
 	@Test
 	public void testBootStrapPageGeneratorNullArgument() throws IOException {
-		gen = new WebpageGenerator();
+		wg = new WebpageGenerator();
 		
 		// head elements
 		String[] headElements = new String[] {
@@ -177,9 +177,9 @@ public class ElementGeneratorTests extends CustomClass {
 		String bodyElements[] = new String[] {nav,content};
 		
 		// page components
-		String head = gen.makeHead(headElements);
-		String body = gen.makeBody(bodySettings,bodyElements);
-		String page = gen.makePage(head, body, null);
+		String head = wg.makeHead(headElements);
+		String body = wg.makeBody(bodySettings,bodyElements);
+		String page = wg.makePage(head, body, null);
 		
 		String[]pageB = page.split("<br>");
 		List<String> newPage = new ArrayList<String>();

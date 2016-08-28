@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GenericBootStrapPageGenerator {
-	WebpageGenerator eg = new WebpageGenerator();
+	WebpageGenerator wg = new WebpageGenerator();
 	String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">" +
 			"<div class=\"container-fluid\">" +
 				"<div class=\"navbar-header\">" +
@@ -42,11 +42,11 @@ public class GenericBootStrapPageGenerator {
 		if (null != pageTitle && pageTitle.length() > 0)
 			pageHead.add("<title>" + pageTitle + "</title>");
 		
-		String head = eg.makeHead(pageHead);
+		String head = wg.makeHead(pageHead);
 		
-		String body = eg.makeBody(bodySettings, content);
+		String body = wg.makeBody(bodySettings, content);
 		
-		String page = eg.makePage(head, body, bottomElements);
+		String page = wg.makePage(head, body, bottomElements);
 
 		return page;
 	}
@@ -55,16 +55,16 @@ public class GenericBootStrapPageGenerator {
 		List<String> bodySettings = new ArrayList<String>();
 		bodySettings.add("class=\"container\"");
 		
-		String head = eg.makeHead(new String[] {
+		String head = wg.makeHead(new String[] {
 				"<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">",
 				"<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>",
 				"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>",
 				"<title>HTML Generator</title>"
 		});
 		
-		String body = eg.makeBody(bodySettings, bodyElements);
+		String body = wg.makeBody(bodySettings, bodyElements);
 		
-		String page = eg.makePage(head, body, bottomElements);
+		String page = wg.makePage(head, body, bottomElements);
 
 		return page;
 	}

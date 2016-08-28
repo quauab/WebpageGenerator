@@ -25,6 +25,20 @@ public class WebpageGenerator {
 		return settings;
 	}
 	
+	/**Returns innerHtml settings.
+	 * @param settings String[]
+	 * @return List<String> settings*/
+	public List<String> makeInnerHtml(String[]settings) {
+		List<String> config = new ArrayList<String>();		
+		if (null != settings && settings.length > 0) {
+			for (String s:settings) {
+				if (null != s && s.length() > 0)
+					config.add(s);
+			}
+		}		
+		return config;
+	}
+	
 	/**Returns a div element.
 	 * @param String[] innerHtml
 	 * @param String[] innerText
@@ -227,8 +241,7 @@ public class WebpageGenerator {
 	public String makeHead(String[]elements) {
 		String head = "<head><br>";
 		head += "<meta charset=\"UTF-8\"><br>";
-		head += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><br>";
-		
+		head += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><br>";		
 		if (null != elements && elements.length > 0) {
 			int i = 0;
 			for (String item:elements) {
@@ -240,9 +253,7 @@ public class WebpageGenerator {
 				i++;
 			}
 		}
-
-		head += "<br></head>";
-		
+		head += "<br></head>";		
 		return head;
 	}
 	
@@ -252,8 +263,7 @@ public class WebpageGenerator {
 	public String makeHead(List<String>elements) {
 		String head = "<head><br>";
 		head += "<meta charset=\"UTF-8\"><br>";
-		head += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><br>";
-		
+		head += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><br>";		
 		if (null != elements && elements.size() > 0) {
 			int i = 0;
 			for (String item:elements) {
@@ -265,9 +275,7 @@ public class WebpageGenerator {
 				i++;
 			}
 		}
-
-		head += "<br></head>";
-		
+		head += "<br></head>";		
 		return head;
 	}
 	
@@ -276,8 +284,7 @@ public class WebpageGenerator {
 	 * @param String[] elements
 	 * @return String body*/
 	public String makeBody(List<String> innerHtml, String[]elements) {
-		String body = "<body ";
-		
+		String body = "<body ";		
 		if (null != innerHtml && innerHtml.size() > 0) {
 			int i = 0;
 			for (String item:innerHtml) {
@@ -288,10 +295,8 @@ public class WebpageGenerator {
 				}
 				i++;
 			}
-		}
-		
-		body += "><br>";
-		
+		}		
+		body += "><br>";		
 		if (null != elements && elements.length > 0) {
 			int i = 0;
 			for (String item:elements) {
@@ -302,10 +307,41 @@ public class WebpageGenerator {
 				}
 				i++;
 			}
-		}
-		
-		body += "<br></body>";
-		
+		}		
+		body += "<br></body>";		
+		return body;
+	}
+	
+	/**Returns a body element.
+	 * @param List<String> innerHtml
+	 * @param String[] elements
+	 * @return String body*/
+	public String makeBody(String[] innerHtml, String[]elements) {
+		String body = "<body ";		
+		if (null != innerHtml && innerHtml.length > 0) {
+			int i = 0;
+			for (String item:innerHtml) {
+				if (i < (innerHtml.length - 1)) {
+					body += item + " ";
+				} else {
+					body += item;
+				}
+				i++;
+			}
+		}		
+		body += "><br>";		
+		if (null != elements && elements.length > 0) {
+			int i = 0;
+			for (String item:elements) {
+				if (i < (elements.length - 1)) {
+					body += item + "<br>";
+				} else {
+					body += item;
+				}
+				i++;
+			}
+		}		
+		body += "<br></body>";		
 		return body;
 	}
 	
@@ -314,14 +350,11 @@ public class WebpageGenerator {
 	 * @return String page*/
 	public String makePage(String head, String body, String[] last) {
 		String page = "<!DOCTYPE html><br>";
-		page += "<html><br>";
-		
+		page += "<html><br>";		
 		if (null != head && head.length() > 0)
-			page += head + "<br>";
-		
+			page += head + "<br>";		
 		if (null != body && body.length() > 0)
-			page += body + "<br>";
-		
+			page += body + "<br>";		
 		if (null != last && last.length > 0) {
 			int i = 0;
 			for (String item:last) {
@@ -331,11 +364,8 @@ public class WebpageGenerator {
 					page += item;
 				}
 			}
-		}
-		
-		
-		page += "</html>";
-		
+		}		
+		page += "</html>";		
 		return page;
 	}
 	
