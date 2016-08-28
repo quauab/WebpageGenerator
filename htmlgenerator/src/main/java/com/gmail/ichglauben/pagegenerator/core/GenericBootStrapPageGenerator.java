@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GenericBootStrapPageGenerator {
-	ElementGenerator eg = new ElementGenerator();
+	WebpageGenerator eg = new WebpageGenerator();
 	String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">" +
 			"<div class=\"container-fluid\">" +
 				"<div class=\"navbar-header\">" +

@@ -36,7 +36,7 @@ public class BootStrapPageGeneratorTests extends CustomClass {
 				+ "<div class=\"container-fluid\">" + "<div class=\"navbar-header\">"
 				+ "<span class=\"navbar-brand\" id=\"navbarheadertop\">BootStrap Page Generator Test</span>" + "</div>"
 				+ "<ul class=\"nav navbar-nav\">"
-				+ "<li><a target=\"_blank\" id=\"about\" class=\"noanchor\" href=\"http://docs.oracle.com/javase/tutorial/index.html\">Java Tutorials</a></li>"
+				+ "<li><a target=\"_blank\" id=\"about\" class=\"anchor\" href=\"http://docs.oracle.com/javase/tutorial/index.html\">Java Tutorials</a></li>"
 				+ "</ul></div></nav>";
 
 		String[] content = new String[] { nav,"<main class=\"content\" id=\"content\">" + "<div class=\"row\">"

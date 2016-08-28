@@ -3,9 +3,9 @@ package com.gmail.ichglauben.pagegenerator.core;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ElementGenerator {
+public class WebpageGenerator {
 	
-	public ElementGenerator() {}
+	public WebpageGenerator() {}
 	
 	/**Returns innerHtml settings.
 	 * @param String id

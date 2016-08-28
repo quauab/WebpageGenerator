@@ -6,19 +6,19 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.gmail.ichglauben.pagegenerator.core.ElementGenerator;
+import com.gmail.ichglauben.pagegenerator.core.WebpageGenerator;
 import com.gmail.ichglauben.pagegenerator.core.utils.CustomClass;
 import com.gmail.ichglauben.pagegenerator.core.utils.GlobalConstants;
 import com.gmail.ichglauben.textfilewriter.core.concretes.TextfileOverwriter;
 
 public class ElementGeneratorTests extends CustomClass {
-	ElementGenerator gen;
+	WebpageGenerator gen;
 	String ud = GlobalConstants.USRDIR;
 	String uh = GlobalConstants.USRHOME;
 	
 	@Test
 	public void testPageGenerator() throws IOException {
-		gen = new ElementGenerator();
+		gen = new WebpageGenerator();
 		
 		// head elements
 		String[] headElements = new String[] {
@@ -66,7 +66,7 @@ public class ElementGeneratorTests extends CustomClass {
 		
 	@Test
 	public void testBootStrapPageGenerator() throws IOException {
-		gen = new ElementGenerator();
+		gen = new WebpageGenerator();
 		
 		// head elements
 		String[] headElements = new String[] {
@@ -130,7 +130,7 @@ public class ElementGeneratorTests extends CustomClass {
 
 	@Test
 	public void testBootStrapPageGeneratorNullArgument() throws IOException {
-		gen = new ElementGenerator();
+		gen = new WebpageGenerator();
 		
 		// head elements
 		String[] headElements = new String[] {

@@ -3,11 +3,11 @@ package com.gmail.ichglauben.pagegenerator;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.gmail.ichglauben.pagegenerator.core.ElementGenerator;
+import com.gmail.ichglauben.pagegenerator.core.WebpageGenerator;
 
 public class App {
 	public static void main(String[] args) {
-		ElementGenerator gen = new ElementGenerator();
+		WebpageGenerator gen = new WebpageGenerator();
 		
 		// head elements
 		String[] headElements = new String[] {
