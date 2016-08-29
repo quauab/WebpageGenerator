@@ -65,6 +65,6 @@ public class WebpageGeneratorHelperTests extends CustomClass {
 			data.add(s);
 		}
 
-		TextfileOverwriter.overwrite(uh + "testbuildpageallcontent", data, ".html");		
+		TextfileOverwriter.overwrite(uh + "testBuildPage", data, ".html");		
 	}
 }
