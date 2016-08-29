@@ -17,215 +17,55 @@ public class WebpageGeneratorTests extends CustomClass {
 	String uh = GlobalConstants.USRHOME;
 	
 	@Test
-	public void testPageGeneratorLists() throws IOException {
+	public void testMakPage() throws IOException {
 		wg = new WebpageGenerator();
 
-		/** head element */
-
-		// head's children
-		String[] headElements = new String[] { "<script src=\"url1\"></script>", "<script src=\"url2\"></script>",
-				"<title>HTML Generator</title>" };
-
-		List<String> headList = new ArrayList<String>();
-
-		for (String s : headElements) {
-			headList.add(s);
-		}
-
-		/** body element */
-
-		// body element
-		List<String> bodySettingsList = new ArrayList<String>();
-		bodySettingsList.add("class=\"container\"");
-
-		// body child elements
-		String bodyElements[] = new String[] {};
-
-		/** scripts & css links added after the body's end tag */
-
-		// bottom script and link tags
-		String[] bottomElements = new String[] { "<link src=\"url88\" rel=\"stylesheet\" />",
-				"<script src=\"url3\"></script>", "<script src=\"url44\"></script>" };
-
-		// page method's parameters
-		String head = wg.makeHead(headList);
-		String body = wg.makeBody(bodySettingsList, bodyElements);
-		String page = wg.makePage(head, body, bottomElements);
-
-		String[] pageB = page.split("<br>");
-		List<String> newPage = new ArrayList<String>();
-
-		for (String p : pageB) {
-			println(p);
-			newPage.add(p);
-		}
-
-		TextfileOverwriter.overwrite(uh + "log1", newPage, ".html");
-	}
-	
-	@Test
-	public void testPageGeneratorStringArrays() throws IOException {
-		wg = new WebpageGenerator();
-
-		/** head element */
-
-		// head's children
-		String[] headArray = new String[] { "<script src=\"url1\"></script>", "<script src=\"url2\"></script>",
-				"<title>HTML Generator</title>" };		
-
-		/** body element */
-
-		// body's settings		
-		String[] bodySettingsArray = new String[] {"class=\"container\""};
-
-		// body child elements
-		String bodyElements[] = new String[] {};
-
-		/** scripts & css links added after the body's end tag */
-
-		// bottom script and link tags
-		String[] bottomElements = new String[] { "<link src=\"url88\" rel=\"stylesheet\" />",
-				"<script src=\"url3\"></script>", "<script src=\"url44\"></script>" };
-
-		// page method's parameters
-		String head = wg.makeHead(headArray);
-		String body = wg.makeBody(bodySettingsArray, bodyElements);
-		String page = wg.makePage(head, body, bottomElements);
-
-		String[] pageB = page.split("<br>");
-		List<String> newPage = new ArrayList<String>();
-
-		for (String p : pageB) {
-			println(p);
-			newPage.add(p);
-		}
-
-		TextfileOverwriter.overwrite(uh + "log1", newPage, ".html");
-	}
-		
-	@Test
-	public void testPageGeneratorPopulatedWithElements() throws IOException {
-		wg = new WebpageGenerator();
-		
-		// head elements
-		String[] headElements = new String[] {
+		// head children elements
+		String[] pageHead = new String[] {
 				"<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">",
 				"<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>",
 				"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>",
-				"<title>HTML Generator</title>"
-		};		
-
-		// navigation bar		
-		String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">" +
-						"<div class=\"container-fluid\">" +
-							"<div class=\"navbar-header\">" +
-								"<span class=\"navbar-brand\" id=\"navbarheadertop\">Report</span>" +
-							"</div>" +
-							"<ul class=\"nav navbar-nav\">" +
-								"<li><a id=\"about\" class=\"noanchor\" href=\"#\">About</a></li>" +
-								"<li><a id=\"map\" class=\"anchor\" href=\"map.html\">Map</a></li>" +
-							"</ul>" +					
-						"</div>" +
-					"</nav>";
-		
-		// main content
-		String content = "<main class=\"content\" id=\"content\">" +
-				"<div class=\"row\">" +	
-					"<div class=\"col-sm-3\">" +
-						"<div class=\"jumbotron\"></div>" +
-					"</div>" +
-					"<div class=\"col-sm-9\">" +
-						"<div class=\"jumbotron\"></div>" +
-					"</div>" +
-				"</div>";		
-		
-		// bottom script and link tags
-		String[] bottomElements = new String[] {
-				"<link rel=\"stylesheet\" href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/quauab/css/style_a.css\">"				
+				"<title>testMakePage</title>"
 		};
 		
-		// body tag settings
-		List<String> bodySettings = new ArrayList<String>();
-			bodySettings.add("class=\"container\"");
+		// body tag properties settings
+		String[] bodySettings = new String[] {"class=\"container\""};
 		
-		// body child elements
-		String bodyElements[] = new String[] {nav,content};
+		// body content elements
+		String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">"
+				+ "<div class=\"container-fluid\">" + "<div class=\"navbar-header\">"
+				+ "<span class=\"navbar-brand\" id=\"navbarheadertop\">Sample Report Page</span>" + "</div>"
+				+ "<ul class=\"nav navbar-nav\">"
+				+ "<li><a target=\"_blank\" id=\"about\" class=\"anchor\" href=\"http://docs.oracle.com/javase/tutorial/index.html\">Java Tutorials</a></li>"
+				+ "</ul></div></nav>";
 		
-		// page components
-		String head = wg.makeHead(headElements);
-		String body = wg.makeBody(bodySettings,bodyElements);
-		String page = wg.makePage(head, body, bottomElements);
-		
-		String[]pageB = page.split("<br>");
-		List<String> newPage = new ArrayList<String>();
-		
-		for (String p:pageB) {
-			println(p);
-			newPage.add(p);
-		}
-		
-		TextfileOverwriter.overwrite(uh + "log2", newPage, ".html");
-	}
+		String main = "<main class=\"content\" id=\"content\">" +
+				"<div class=\"row\">" + "<div class=\"col-sm-12\">" +
+				"<div class=\"jumbotron\">" + "<h2 id=\"header\">" + "JUnit Version 4.12</h2><ul>";
 
-	@Test
-	public void testBootStrapPageGeneratorNullArgument() throws IOException {
-		wg = new WebpageGenerator();
+		String className = "<li><b>Test Class Name:</b> " + getClass().getSimpleName() + "</li>";
+		String classCanonicalName = "<li><b>Test Class Canonical Name:</b> " + getClass().getCanonicalName() + "</li>";
+		String classLoader = "<li><b>Test Class Loader:</b> " + getClass().getClassLoader().toString() + "</li>";
+		String classType = "<li><b>Test Class Type:</b> " + getClass().getTypeName() + "</li>";
+		String classUnderTest = "<li><b>Class Under Test:</b> " + wg.getClass().getSimpleName() + "</li>";
+		String testMethod = "<li class=\"large\"><b>Test Method:</b> testMakePage</li>";
 		
-		// head elements
-		String[] headElements = new String[] {
-				"<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">",
-				"<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>",
-				"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>",
-				"<title>HTML Generator</title>"
-		};		
+		main += className + classCanonicalName + classLoader + classType + classUnderTest + testMethod +  "</ul></div></div</div></main>";
 
-		// navigation bar		
-		String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">" +
-						"<div class=\"container-fluid\">" +
-							"<div class=\"navbar-header\">" +
-								"<span class=\"navbar-brand\" id=\"navbarheadertop\">Report</span>" +
-							"</div>" +
-							"<ul class=\"nav navbar-nav\">" +
-								"<li><a id=\"about\" class=\"noanchor\" href=\"#\">About</a></li>" +
-								"<li><a id=\"map\" class=\"anchor\" href=\"map.html\">Map</a></li>" +
-							"</ul>" +					
-						"</div>" +
-					"</nav>";
+		String[] content = new String[] { nav, main };
 		
-		// main content
-		String content = "<main class=\"content\" id=\"content\">" +
-				"<div class=\"row\">" +	
-					"<div class=\"col-sm-3\">" +
-						"<div class=\"jumbotron\"></div>" +
-					"</div>" +
-					"<div class=\"col-sm-9\">" +
-						"<div class=\"jumbotron\"></div>" +
-					"</div>" +
-				"</div>";		
-		
-		// bottom script and link tags
+		// extra links & scripts
 		String[] bottomElements = new String[] {
-				"<link rel=\"stylesheet\" href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/quauab/css/style_a.css\">"				
+				"<link href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/resources/java/css/style_a.css\" rel=\"stylesheet\"/>" 				
 		};
+
+		List<String> data = new ArrayList<String>();
 		
-		// body tag settings
-		List<String> bodySettings = new ArrayList<String>();
-			bodySettings.add("class=\"container\"");	
-		
-		// page components
-		String head = wg.makeHead(headElements);
-		String body = wg.makeBody(bodySettings,null);
-		String page = wg.makePage(head, body, null);
-		
-		String[]pageB = page.split("<br>");
-		List<String> newPage = new ArrayList<String>();
-		
-		for (String p:pageB) {
-			println(p);
-			newPage.add(p);
+		for (String s:wg.makePage(wg.makeHead(pageHead), wg.makeBody(bodySettings, content), bottomElements).split("<br>")) {
+			data.add(s);
 		}
-		
-		TextfileOverwriter.overwrite(uh + "log3", newPage, ".html");
+
+		TextfileOverwriter.overwrite(uh + "testMakePage", data, ".html");
 	}
 	
 }
