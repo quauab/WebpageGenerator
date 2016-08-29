@@ -11,7 +11,7 @@ import com.gmail.ichglauben.pagegenerator.core.utils.CustomClass;
 import com.gmail.ichglauben.pagegenerator.core.utils.GlobalConstants;
 import com.gmail.ichglauben.textfilewriter.core.concretes.TextfileOverwriter;
 
-public class BootStrapPageGeneratorTests extends CustomClass {
+public class WebpageGeneratorHelperTests extends CustomClass {
 	WebpageGeneratorHelper gbpg;
 	String uh = GlobalConstants.USRHOME;	
 	
