@@ -27,7 +27,7 @@ public class WebpageGeneratorHelperTests extends CustomClass {
 				"<title>testBuildPage</title>"
 		};
 		
-		// body property settings
+		// body tag properties settings
 		String[] bodySettings = new String[] {"class=\"container\""};
 		
 		// body content elements
