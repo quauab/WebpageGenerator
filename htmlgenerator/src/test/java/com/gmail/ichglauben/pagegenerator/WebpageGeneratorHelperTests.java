@@ -12,12 +12,12 @@ import com.gmail.ichglauben.pagegenerator.core.utils.GlobalConstants;
 import com.gmail.ichglauben.textfilewriter.core.concretes.TextfileOverwriter;
 
 public class WebpageGeneratorHelperTests extends CustomClass {
-	WebpageGeneratorHelper gbpg;
+	WebpageGeneratorHelper wgh;
 	String uh = GlobalConstants.USRHOME;	
 	
 	@Test
 	public void testBuildPage() throws IOException {
-		gbpg = new WebpageGeneratorHelper();
+		wgh = new WebpageGeneratorHelper();
 		
 		// head children elements
 		String[] pageHead = new String[] {
@@ -46,7 +46,7 @@ public class WebpageGeneratorHelperTests extends CustomClass {
 		String classCanonicalName = "<li><b>Test Class Canonical Name:</b> " + getClass().getCanonicalName() + "</li>";
 		String classLoader = "<li><b>Test Class Loader:</b> " + getClass().getClassLoader().toString() + "</li>";
 		String classType = "<li><b>Test Class Type:</b> " + getClass().getTypeName() + "</li>";
-		String classUnderTest = "<li><b>Class Under Test:</b> " + gbpg.getClass().getSimpleName() + "</li>";
+		String classUnderTest = "<li><b>Class Under Test:</b> " + wgh.getClass().getSimpleName() + "</li>";
 		String testMethod = "<li class=\"large\"><b>Test Method:</b> testBuildPage</li>";
 		
 		main += className + classCanonicalName + classLoader + classType + classUnderTest + testMethod +  "</ul></div></div</div></main>";
@@ -61,7 +61,7 @@ public class WebpageGeneratorHelperTests extends CustomClass {
 		List<String> data = new ArrayList<String>();
 
 		// call buildPage with desired content & settings parameters
-		for (String s : gbpg.buildPage(pageHead, bodySettings, content, bottomElements).split("<br>")) {
+		for (String s : wgh.buildPage(pageHead, bodySettings, content, bottomElements).split("<br>")) {
 			data.add(s);
 		}
 
