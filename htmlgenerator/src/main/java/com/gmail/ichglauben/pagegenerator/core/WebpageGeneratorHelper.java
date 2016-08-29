@@ -21,5 +21,5 @@ public class WebpageGeneratorHelper {
 		return page;
 	}
 	
-	public String toString() { return "BootStrap Page Generator"; }
+	public String toString() { return "Webpage Generator's Helper Class"; }
 }
