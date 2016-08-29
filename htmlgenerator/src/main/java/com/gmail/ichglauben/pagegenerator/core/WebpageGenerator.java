@@ -2,10 +2,12 @@ package com.gmail.ichglauben.pagegenerator.core;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**Generate HTML elements that make up a web page, with content.*/
 public class WebpageGenerator {
-	
-	public WebpageGenerator() {}
+	/**Single default constructor*/
+	public WebpageGenerator() {
+		super();
+	}
 	
 	/**Returns a div element.
 	 * @param innerHtml String List The div's property settings
@@ -510,8 +512,10 @@ public class WebpageGenerator {
 	}
 	
 	/**Returns a page element.
-	 * @param String[] elements
-	 * @return String page*/
+	 * @param head String The head tag contents
+	 * @param body String The body tag contents and body property settings
+	 * @param last String array Extra links and script tags after closing body tag
+	 * @return page String The web page mark-up*/
 	public String makePage(String head, String body, String[] last) {
 		String page = "<!DOCTYPE html><br>";
 		page += "<html><br>";		
