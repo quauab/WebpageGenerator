@@ -531,6 +531,7 @@ public class WebpageGenerator {
 				} else {
 					page += item;
 				}
+				i++;
 			}
 		}		
 		page += "<br></html>";		
