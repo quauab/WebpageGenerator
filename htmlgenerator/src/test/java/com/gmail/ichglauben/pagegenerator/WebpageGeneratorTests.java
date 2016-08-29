@@ -32,25 +32,25 @@ public class WebpageGeneratorTests extends CustomClass {
 		String[] bodySettings = new String[] {"class=\"container\""};
 		
 		// body content elements
-		String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">"
-				+ "<div class=\"container-fluid\">" + "<div class=\"navbar-header\">"
-				+ "<span class=\"navbar-brand\" id=\"navbarheadertop\">Sample Report Page</span>" + "</div>"
-				+ "<ul class=\"nav navbar-nav\">"
-				+ "<li><a target=\"_blank\" id=\"about\" class=\"anchor\" href=\"http://docs.oracle.com/javase/tutorial/index.html\">Java Tutorials</a></li>"
-				+ "</ul></div></nav>";
+		String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\"><br>"
+				+ "<div class=\"container-fluid\">" + "<div class=\"navbar-header\"><br>"
+				+ "<span class=\"navbar-brand\" id=\"navbarheadertop\">Sample Report Page</span><br>" + "</div><br>"
+				+ "<ul class=\"nav navbar-nav\"><br>"
+				+ "<li><a target=\"_blank\" id=\"about\" class=\"anchor\" href=\"http://docs.oracle.com/javase/tutorial/index.html\">Java Tutorials</a></li><br>"
+				+ "</ul><br></div><br></nav>";
 		
-		String main = "<main class=\"content\" id=\"content\">" +
-				"<div class=\"row\">" + "<div class=\"col-sm-12\">" +
-				"<div class=\"jumbotron\">" + "<h2 id=\"header\">" + "JUnit Version 4.12</h2><ul>";
+		String main = "<main class=\"content\" id=\"content\"><br>" +
+				"<div class=\"row\"><br>" + "<div class=\"col-sm-12\"><br>" +
+				"<div class=\"jumbotron\"><br>" + "<h2 id=\"header\"><br>" + "JUnit Version 4.12</h2><br><ul><br>";
 
-		String className = "<li><b>Test Class Name:</b> " + getClass().getSimpleName() + "</li>";
-		String classCanonicalName = "<li><b>Test Class Canonical Name:</b> " + getClass().getCanonicalName() + "</li>";
-		String classLoader = "<li><b>Test Class Loader:</b> " + getClass().getClassLoader().toString() + "</li>";
-		String classType = "<li><b>Test Class Type:</b> " + getClass().getTypeName() + "</li>";
-		String classUnderTest = "<li><b>Class Under Test:</b> " + wg.getClass().getSimpleName() + "</li>";
-		String testMethod = "<li class=\"large\"><b>Test Method:</b> testMakePage</li>";
+		String className = "<li><b>Test Class Name:</b> " + getClass().getSimpleName() + "</li><br>";
+		String classCanonicalName = "<li><b>Test Class Canonical Name:</b> " + getClass().getCanonicalName() + "</li><br>";
+		String classLoader = "<li><b>Test Class Loader:</b> " + getClass().getClassLoader().toString() + "</li><br>";
+		String classType = "<li><b>Test Class Type:</b> " + getClass().getTypeName() + "</li><br>";
+		String classUnderTest = "<li><b>Class Under Test:</b> " + wg.getClass().getSimpleName() + "</li><br>";
+		String testMethod = "<li class=\"large\"><b>Test Method:</b> testMakePage</li><br>";
 		
-		main += className + classCanonicalName + classLoader + classType + classUnderTest + testMethod +  "</ul></div></div</div></main>";
+		main += className + classCanonicalName + classLoader + classType + classUnderTest + testMethod +  "</ul><br></div><br></div><br></div><br></main><br>";
 
 		String[] content = new String[] { nav, main };
 		

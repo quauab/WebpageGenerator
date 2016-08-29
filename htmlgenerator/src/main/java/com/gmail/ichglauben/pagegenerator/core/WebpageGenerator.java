@@ -529,7 +529,7 @@ public class WebpageGenerator {
 				}
 			}
 		}		
-		page += "</html>";		
+		page += "<br></html>";		
 		return page;
 	}
 	
