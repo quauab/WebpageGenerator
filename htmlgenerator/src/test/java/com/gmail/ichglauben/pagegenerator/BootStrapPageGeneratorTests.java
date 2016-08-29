@@ -13,52 +13,24 @@ import com.gmail.ichglauben.textfilewriter.core.concretes.TextfileOverwriter;
 
 public class BootStrapPageGeneratorTests extends CustomClass {
 	GenericBootStrapPageGenerator gbpg;
-	String uh = GlobalConstants.USRHOME;
+	String uh = GlobalConstants.USRHOME;	
 	
 	@Test
-	public void testBuildPageNoArgsMethod() throws IOException {
+	public void testBuildPage() throws IOException {
 		gbpg = new GenericBootStrapPageGenerator();
 		
-		List<String> data = new ArrayList<String>();
+		// head tag
+		String[] pageHead = new String[] {
+				"<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">",
+				"<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>",
+				"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>",
+				"<title>testBuildPageAllContent</title>"
+		};
 		
-		for (String s:gbpg.buildPage().split("<br>")) {
-			data.add(s);
-		}
+		// body property settings
+		String[] bodySettings = new String[] {"class=\"container\""};
 		
-		TextfileOverwriter.overwrite(uh + "bootstrappage", data, ".html");
-	}
-	
-	@Test
-	public void testBuildPageContentArgsMethod() throws IOException {
-		gbpg = new GenericBootStrapPageGenerator();
-		
-		String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">"
-				+ "<div class=\"container-fluid\">" + "<div class=\"navbar-header\">"
-				+ "<span class=\"navbar-brand\" id=\"navbarheadertop\">BootStrap Page Generator Test</span>" + "</div>"
-				+ "<ul class=\"nav navbar-nav\">"
-				+ "<li><a target=\"_blank\" id=\"about\" class=\"anchor\" href=\"http://docs.oracle.com/javase/tutorial/index.html\">Java Tutorials</a></li>"
-				+ "</ul></div></nav>";
-
-		String[] content = new String[] { nav,"<main class=\"content\" id=\"content\">" + "<div class=\"row\">"
-				+ "<div class=\"col-sm-12\">" + "<div class=\"jumbotron\">" + "<h3 id=\"header\">"
-				+ "BootStrap Generated Page</h3>" + "</div>" + "</div>" + "</div>" };
-		
-		String[] bottomElements = new String[] {
-				"<link href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/resources/java/css/style_a.css\" rel=\"stylesheet\"/>" };
-		
-		List<String> data = new ArrayList<String>();
-		
-		for (String s : gbpg.buildPage(content, bottomElements, "BootStrap Page").split("<br>")) {
-			data.add(s);
-		}
-		
-		TextfileOverwriter.overwrite(uh + "index", data, ".html");
-	}
-	
-	@Test
-	public void testGenericBootStrapPageGenerator() throws IOException {
-		gbpg = new GenericBootStrapPageGenerator();
-		
+		// body content
 		String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">"
 				+ "<div class=\"container-fluid\">" + "<div class=\"navbar-header\">"
 				+ "<span class=\"navbar-brand\" id=\"navbarheadertop\">Sample Report Page</span>" + "</div>"
@@ -75,21 +47,23 @@ public class BootStrapPageGeneratorTests extends CustomClass {
 		String classLoader = "<li><b>Test Class Loader:</b> " + getClass().getClassLoader().toString() + "</li>";
 		String classType = "<li><b>Test Class Type:</b> " + getClass().getTypeName() + "</li>";
 		String classUnderTest = "<li><b>Class Under Test:</b> " + gbpg.getClass().getSimpleName() + "</li>";
+		String testMethod = "<li class=\"large\"><b>Test Method:</b> testBuildPage</li>";
 		
-		main += className + classCanonicalName + classLoader + classType + classUnderTest + "</ul></div></div</div></main>";
+		main += className + classCanonicalName + classLoader + classType + classUnderTest + testMethod +  "</ul></div></div</div></main>";
 
 		String[] content = new String[] { nav, main };
 		
+		// bottom elements
 		String[] bottomElements = new String[] {
-				"<link href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/resources/java/css/style_a.css\" rel=\"stylesheet\"/>" };
-		
+				"<link href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/resources/java/css/style_a.css\" rel=\"stylesheet\"/>" 				
+		};
+
 		List<String> data = new ArrayList<String>();
-		
-		for (String s : gbpg.buildPage(content, bottomElements, "JUnit Test").split("<br>")) {
+
+		for (String s : gbpg.buildPage(pageHead, bodySettings, content, bottomElements).split("<br>")) {
 			data.add(s);
 		}
-		
-		TextfileOverwriter.overwrite(uh + "report", data, ".html");
-	}
 
+		TextfileOverwriter.overwrite(uh + "testbuildpageallcontent", data, ".html");		
+	}
 }
