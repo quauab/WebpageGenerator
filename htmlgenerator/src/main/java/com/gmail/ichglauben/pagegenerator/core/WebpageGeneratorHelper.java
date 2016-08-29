@@ -3,7 +3,7 @@ package com.gmail.ichglauben.pagegenerator.core;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenericBootStrapPageGenerator {
+public class WebpageGeneratorHelper {
 	WebpageGenerator wg = new WebpageGenerator();
 	
 	/**Returns page String The built web page.

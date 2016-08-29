@@ -6,31 +6,31 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.gmail.ichglauben.pagegenerator.core.GenericBootStrapPageGenerator;
+import com.gmail.ichglauben.pagegenerator.core.WebpageGeneratorHelper;
 import com.gmail.ichglauben.pagegenerator.core.utils.CustomClass;
 import com.gmail.ichglauben.pagegenerator.core.utils.GlobalConstants;
 import com.gmail.ichglauben.textfilewriter.core.concretes.TextfileOverwriter;
 
 public class BootStrapPageGeneratorTests extends CustomClass {
-	GenericBootStrapPageGenerator gbpg;
+	WebpageGeneratorHelper gbpg;
 	String uh = GlobalConstants.USRHOME;	
 	
 	@Test
 	public void testBuildPage() throws IOException {
-		gbpg = new GenericBootStrapPageGenerator();
+		gbpg = new WebpageGeneratorHelper();
 		
-		// head tag
+		// head children elements
 		String[] pageHead = new String[] {
 				"<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">",
 				"<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>",
 				"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>",
-				"<title>testBuildPageAllContent</title>"
+				"<title>testBuildPage</title>"
 		};
 		
 		// body property settings
 		String[] bodySettings = new String[] {"class=\"container\""};
 		
-		// body content
+		// body content elements
 		String nav = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">"
 				+ "<div class=\"container-fluid\">" + "<div class=\"navbar-header\">"
 				+ "<span class=\"navbar-brand\" id=\"navbarheadertop\">Sample Report Page</span>" + "</div>"
@@ -53,13 +53,14 @@ public class BootStrapPageGeneratorTests extends CustomClass {
 
 		String[] content = new String[] { nav, main };
 		
-		// bottom elements
+		// extra links & scripts
 		String[] bottomElements = new String[] {
 				"<link href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/resources/java/css/style_a.css\" rel=\"stylesheet\"/>" 				
 		};
 
 		List<String> data = new ArrayList<String>();
 
+		// call buildPage with desired content & settings parameters
 		for (String s : gbpg.buildPage(pageHead, bodySettings, content, bottomElements).split("<br>")) {
 			data.add(s);
 		}
