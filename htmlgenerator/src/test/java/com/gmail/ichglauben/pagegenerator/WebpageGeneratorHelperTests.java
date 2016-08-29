@@ -111,13 +111,6 @@ public class WebpageGeneratorHelperTests extends CustomClass {
 				"<link href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/resources/java/css/style_a.css\" rel=\"stylesheet\"/>" 				
 		};
 
-		List<String> data = new ArrayList<String>();
-
-		// call buildPage with desired content & settings parameters
-		for (String s : wgh.buildAndReturnPage(pageHead, bodySettings, content, bottomElements)) {
-			data.add(s);
-		}
-
-		TextfileOverwriter.overwrite(uh + "testBuildAndReturnPage", data, ".html");		
+		TextfileOverwriter.overwrite(uh + "testBuildAndReturnPage", wgh.buildAndReturnPage(pageHead, bodySettings, content, bottomElements), ".html");		
 	}
 }
