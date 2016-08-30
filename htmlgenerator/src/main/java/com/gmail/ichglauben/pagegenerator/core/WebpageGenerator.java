@@ -516,7 +516,7 @@ public class WebpageGenerator {
 	 * @param body String The body tag contents and body property settings
 	 * @param last String array Extra links and script tags after closing body tag
 	 * @return page String The web page mark-up*/
-	public String makePage(String head, String body, String[] last) {
+	public String[] makePage(String head, String body, String[] last) {
 		String page = "<!DOCTYPE html><br>";
 		page += "<html><br>";		
 		if (null != head && head.length() > 0)
@@ -535,7 +535,7 @@ public class WebpageGenerator {
 			}
 		}		
 		page += "<br></html>";		
-		return page;
+		return page.split("<br>");
 	}
 	
 	public String toString() { return "Webpage Generator"; }

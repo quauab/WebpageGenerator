@@ -22,9 +22,7 @@ public class WebpageGeneratorHelper {
 		
 		String body = wg.makeBody(bodySettings, content);
 		
-		String page = wg.makePage(head, body, bottomElements);
-
-		return page.split("<br>");
+		return wg.makePage(head, body, bottomElements);
 	}
 	
 	public String toString() { return "Webpage Generator's Helper Class"; }

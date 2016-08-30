@@ -59,7 +59,7 @@ public class WebpageGeneratorTests extends CustomClass {
 				"<link href=\"https://dl.dropboxusercontent.com/u/50203839/web/sites/resources/java/css/style_a.css\" rel=\"stylesheet\"/>" 				
 		};
 
-		TextfileOverwriter.overwrite(uh + "testMakePage", wg.makePage(wg.makeHead(pageHead), wg.makeBody(bodySettings, content), bottomElements).split("<br>"), ".html");
+		TextfileOverwriter.overwrite(uh + "testMakePage", wg.makePage(wg.makeHead(pageHead), wg.makeBody(bodySettings, content), bottomElements), ".html");
 	}
 	
 }

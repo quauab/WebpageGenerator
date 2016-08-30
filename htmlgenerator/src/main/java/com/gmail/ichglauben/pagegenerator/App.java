@@ -41,10 +41,9 @@ public class App {
 		
 		String head = gen.makeHead(headElements);
 		String body = gen.makeBody(bodySettings,bodyElements);
-		String page = gen.makePage(head, body, bottomElements);
+		String[] page = gen.makePage(head, body, bottomElements);
 		
-		String[]pageB = page.split("<br>");
-		for (String p:pageB) {
+		for (String p:page) {
 			println(p);
 		}
 	}
