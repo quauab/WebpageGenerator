@@ -1,6 +1,6 @@
 # Generic Webpage Generator
 
-Generate a web page with content.
+Build a webpage piece by piece. The solution is generic enough to build with a page with any JavaScript framework.
 
 <h2>Dependencies</h2>
 <ul>
