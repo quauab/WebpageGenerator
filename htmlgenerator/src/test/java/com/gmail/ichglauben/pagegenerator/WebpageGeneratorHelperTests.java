@@ -19,6 +19,7 @@ public class WebpageGeneratorHelperTests extends CustomClass {
 	public void testBuildPage() throws IOException {
 		wgh = new WebpageGeneratorHelper();
 		
+		/**Building a BootStrap page*/
 		// head children elements
 		String[] pageHead = new String[] {
 				"<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">",

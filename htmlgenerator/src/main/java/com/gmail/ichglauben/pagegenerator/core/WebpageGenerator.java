@@ -2,7 +2,7 @@ package com.gmail.ichglauben.pagegenerator.core;
 
 import java.util.ArrayList;
 import java.util.List;
-/**Generate HTML elements that make up a web page, with content.*/
+/**Generate HTML elements that make up a web page, with content. Generic enough to apply any JavaScript framework.*/
 public class WebpageGenerator {
 	/**Single default constructor*/
 	public WebpageGenerator() {
