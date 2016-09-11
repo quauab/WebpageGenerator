@@ -72,19 +72,23 @@ public class WebpageGeneratorTests extends CustomClass {
 				"<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>",
 				"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>",
 				"<title>testMakePage</title>" };
-
-		// header settings
-		String[] elementProperties = new String[] { "id=\"header\"" };
-
-		String innerText = "";
-
-		String[] children = new String[] {};
-
+		
+		// the new element
 		String elementStart = "<div ";
 		String elementStartClose = ">";
 		String elementEnd = "</div>";
+		
+		// the new element's properties
+		String[] elementProperties = new String[] { "id=\"header\"" };
 
-		String header = gen.makeElement(elementStart, elementStartClose, elementEnd, elementProperties, innerText,
+		// the new element's inner text
+		String innerText = "";
+
+		// the new element's child elements
+		String[] children = new String[] {};
+
+		// building a div element
+		String div = gen.makeElement(elementStart, elementStartClose, elementEnd, elementProperties, innerText,
 				children);
 
 		// bottom script and link tags
@@ -95,7 +99,7 @@ public class WebpageGeneratorTests extends CustomClass {
 		List<String> bodySettings = new ArrayList<String>();
 		bodySettings.add("class=\"container\"");
 
-		String bodyElements[] = new String[] { header };
+		String bodyElements[] = new String[] { div };
 
 		String head = gen.makeHead(headElements);
 		String body = gen.makeBody(bodySettings, bodyElements);
