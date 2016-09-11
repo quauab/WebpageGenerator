@@ -85,7 +85,7 @@ public class WebpageGeneratorTests extends CustomClass {
 		String innerText = "";
 
 		// the new element's child elements
-		String[] children = new String[] {};
+		String[] children = null;
 
 		// building a div element
 		String div = gen.makeElement(elementStart, elementStartClose, elementEnd, elementProperties, innerText,
