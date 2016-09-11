@@ -17,13 +17,17 @@ public class App {
 		};		
 
 		// header settings		
-		List<String> headerInnerHtml = new ArrayList<String>() {};
+		String []elementProperties = new String[] {"id=\"header\""};
 		
-		String[] headerInnerText = new String[] {};
+		String innerText = "";
 		
-		String[] headerElements = new String[] {};
+		String[] children = new String[] {};
 		
-		String header = gen.makeHeader(headerInnerHtml, headerInnerText, headerElements);
+		String elementStart = "<div ";
+		String elementStartClose = ">";
+		String elementEnd = "</div>";
+		
+		String header = gen.makeElement(elementStart, elementStartClose, elementEnd, elementProperties, innerText, children);
 		
 		
 		// bottom script and link tags
@@ -37,7 +41,7 @@ public class App {
 		List<String> bodySettings = new ArrayList<String>();
 		bodySettings.add("class=\"container\"");
 		
-		String bodyElements[] = new String[] {};
+		String bodyElements[] = new String[] {header};
 		
 		String head = gen.makeHead(headElements);
 		String body = gen.makeBody(bodySettings,bodyElements);

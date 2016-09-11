@@ -62,4 +62,47 @@ public class WebpageGeneratorTests extends CustomClass {
 		TextfileOverwriter.overwrite(uh + "testMakePage", wg.makePage(wg.makeHead(pageHead), wg.makeBody(bodySettings, content), bottomElements), ".html");
 	}
 	
+	@Test
+	public void testMakeElement() {
+		WebpageGenerator gen = new WebpageGenerator();
+
+		// head elements
+		String[] headElements = new String[] { 
+				"<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">",
+				"<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>",
+				"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>",
+				"<title>testMakePage</title>" };
+
+		// header settings
+		String[] elementProperties = new String[] { "id=\"header\"" };
+
+		String innerText = "";
+
+		String[] children = new String[] {};
+
+		String elementStart = "<div ";
+		String elementStartClose = ">";
+		String elementEnd = "</div>";
+
+		String header = gen.makeElement(elementStart, elementStartClose, elementEnd, elementProperties, innerText,
+				children);
+
+		// bottom script and link tags
+		String[] bottomElements = new String[] { "<link src=\"url88\" rel=\"stylesheet\" />",
+				"<script src=\"url3\"></script>", "<script src=\"url44\"></script>" };
+
+		// body inner html and child elements
+		List<String> bodySettings = new ArrayList<String>();
+		bodySettings.add("class=\"container\"");
+
+		String bodyElements[] = new String[] { header };
+
+		String head = gen.makeHead(headElements);
+		String body = gen.makeBody(bodySettings, bodyElements);
+		String[] page = gen.makePage(head, body, bottomElements);
+
+		for (String p : page) {
+			println(p);
+		}
+	}
 }

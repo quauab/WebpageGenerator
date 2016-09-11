@@ -9,396 +9,55 @@ public class WebpageGenerator {
 		super();
 	}
 	
-	/**Returns a div element.
-	 * @param innerHtml String List The div's property settings
-	 * @param innerText String[] The div's text node children
-	 * @param elements String[] The div's children elements
-	 * @return String div*/
-	public String makeDiv(List<String> innerHtml, String[]innerText, String[]elements) {
-		String div = "<div ";
-		if (null != innerHtml && innerHtml.size() > 0) {
+	/**Creates and returns an HTML element. Notice the escaped double quotes.
+	 * @param elementStart String e.g. <div or <p or <br or <span etc.
+	 * @param elementStartClose e.g. > character
+	 * @param elementEnd e.g. </div> or </p> or </span> etc.
+	 * @param properties String array e.g. class=\"class-name\" or id=\"identification\" or data-role=\"heading\"
+	 * @param innerText String plain text
+	 * @param children String array A list of elements to embed
+	 * @return newElement The constructed HTML element*/
+	public String makeElement(String elementStart, String elementStartClose, String elementEnd, String[] properties, String innerText, String[] children) {
+		String newElement = " ";
+		
+		if (null != elementStart && !elementStart.isEmpty())
+			newElement = elementStart;
+		
+		if (null != properties && properties.length > 0) {
 			int i = 0;
-			for (String item : innerHtml) {
-				if (i < (innerHtml.size() - 1)) {
-					div += item + " ";
+			for (String p:properties) {
+				if (i < (properties.length - 1)) {
+					newElement += p + " ";
 				} else {
-					div += item;
+					newElement += p;
 				}
-				i++;
-			}
-		}
-
-		div += "><br>";
-
-		if (null != innerText && innerText.length > 0) {
-			int i = 0;
-			for (String item : innerText) {
-				if (i < (innerText.length - 1)) {
-					div += item + "<br>";
-				} else {
-					div += item;
-				}
-				i++;
 			}
 		}
 		
-		div += "<br>";
-
-		if (null != elements && elements.length > 0) {
-			int i = 0;
-			for (String item : elements) {
-				if (i < (elements.length - 1)) {
-					div += item + "<br>";
-				} else {
-					div += item;
-				}
-				i++;
-			}
+		newElement += elementStartClose;
+		
+		if (null != innerText && !innerText.isEmpty()) {
+			newElement += innerText + "<br>";
 		}
-
-		div += "</div>";
-
-		return div;
-	}
-	
-	/**Returns a div element.
-	 * @param innerHtml String[] The div's property settings
-	 * @param innerText String[] The div's text node children
-	 * @param elements String[] The div's children elements
-	 * @return String div*/
-	public String makeDiv(String[] innerHtml, String[]innerText, String[]elements) {
-		String div = "<div ";
-		if (null != innerHtml && innerHtml.length > 0) {
+		
+		newElement += "<br>";
+		
+		if (null != children && children.length > 0) {
 			int i = 0;
-			for (String item : innerHtml) {
-				if (i < (innerHtml.length - 1)) {
-					div += item + " ";
+			for (String c:children) {
+				if (i < (children.length - 1)) {
+					newElement += c + "<br>";
 				} else {
-					div += item;
+					newElement += c;
 				}
-				i++;
-			}
-		}
-
-		div += "><br>";
-
-		if (null != innerText && innerText.length > 0) {
-			int i = 0;
-			for (String item : innerText) {
-				if (i < (innerText.length - 1)) {
-					div += item + "<br>";
-				} else {
-					div += item;
-				}
-				i++;
 			}
 		}
 		
-		div += "<br>";
-
-		if (null != elements && elements.length > 0) {
-			int i = 0;
-			for (String item : elements) {
-				if (i < (elements.length - 1)) {
-					div += item + "<br>";
-				} else {
-					div += item;
-				}
-				i++;
-			}
-		}
-
-		div += "</div>";
-
-		return div;
-	}
-
-	/**Returns a div element.
-	 * @param innerHtml String List The header element's property settings
-	 * @param innerText String[] The header's text node children
-	 * @param elements String[] The header's children elements
-	 * @return String div*/
-	public String makeHeader(List<String> innerHtml, String[]innerText, String[]elements) {
-		String div = "<div ";
+		newElement += elementEnd;
 		
-		if (null != innerHtml && innerHtml.size() > 0) {
-			int i = 0;
-			for (String item:innerHtml) {
-				if (i < (innerHtml.size() - 1)) {
-					div += item + " ";
-				} else {
-					div += item;
-				}
-				i++;
-			}
-		}
+		newElement += "<br>";
 		
-		div += "><br>";
-		
-		if (null != innerText && innerText.length > 0) {
-			int i = 0;
-			for (String item:innerText) {
-				if (i < (innerText.length - 1)) {
-					div += item + "<br>";
-				} else {
-					div += item;
-				}
-				i++;
-			}
-		}
-		
-		div += "<br>";
-		
-		if (null != elements && elements.length > 0) {
-			int i = 0;
-			for (String item:elements) {
-				if (i < (elements.length - 1)) {
-					div += item + "<br>";
-				} else {
-					div += item;
-				}
-				i++;
-			}
-		}
-		
-		div += "</div>";
-		
-		return div;
-	}
-	
-	/**Returns a div element.
-	 * @param innerHtml String[] The header element's property settings
-	 * @param innerText String[] The header's text node children
-	 * @param elements String[] The header's children elements
-	 * @return String div*/
-	public String makeHeader(String[] innerHtml, String[]innerText, String[]elements) {
-		String div = "<div ";
-		
-		if (null != innerHtml && innerHtml.length > 0) {
-			int i = 0;
-			for (String item:innerHtml) {
-				if (i < (innerHtml.length - 1)) {
-					div += item + " ";
-				} else {
-					div += item;
-				}
-				i++;
-			}
-		}
-		
-		div += "><br>";
-		
-		if (null != innerText && innerText.length > 0) {
-			int i = 0;
-			for (String item:innerText) {
-				if (i < (innerText.length - 1)) {
-					div += item + "<br>";
-				} else {
-					div += item;
-				}
-				i++;
-			}
-		}
-		
-		div += "<br>";
-		
-		if (null != elements && elements.length > 0) {
-			int i = 0;
-			for (String item:elements) {
-				if (i < (elements.length - 1)) {
-					div += item + "<br>";
-				} else {
-					div += item;
-				}
-				i++;
-			}
-		}
-		
-		div += "</div>";
-		
-		return div;
-	}
-	
-	/**Returns a header element.
-	 * @param innerHtml String List The paragraph element's property settings
-	 * @param innerText String[] The paragraph element's text node children
-	 * @return String header*/
-	public String makeParagraph(List<String> innerHtml, String[]innerText) {
-		String para = "<p ";
-		
-		if (null != innerHtml && innerHtml.size() > 0) {
-			int i = 0;
-			for (String item:innerHtml) {
-				if (i < (innerHtml.size() - 1)) {
-					para += item + " ";
-				} else {
-					para += item;
-				}
-				i++;
-			}
-		}
-		
-		para += "><br>";
-		
-		if (null != innerText && innerText.length > 0) {
-			int i = 0;
-			for (String item:innerText) {
-				if (i < (innerText.length - 1)) {
-					para += "<br>" + item + "<br>";
-				} else {
-					para += item;
-				}
-				i++;
-			}
-		}
-		
-		para += "<br></p>";
-		
-		return para;
-	}
-	
-	/**Returns a header element.
-	 * @param innerHtml String[] The paragraph element's property settings
-	 * @param innerText String[] The paragraph element's text node children
-	 * @return String header*/
-	public String makeParagraph(String[] innerHtml, String[]innerText) {
-		String para = "<p ";
-		
-		if (null != innerHtml && innerHtml.length > 0) {
-			int i = 0;
-			for (String item:innerHtml) {
-				if (i < (innerHtml.length - 1)) {
-					para += item + " ";
-				} else {
-					para += item;
-				}
-				i++;
-			}
-		}
-		
-		para += "><br>";
-		
-		if (null != innerText && innerText.length > 0) {
-			int i = 0;
-			for (String item:innerText) {
-				if (i < (innerText.length - 1)) {
-					para += "<br>" + item + "<br>";
-				} else {
-					para += item;
-				}
-				i++;
-			}
-		}
-		
-		para += "<br></p>";
-		
-		return para;
-	}
-	
-	/**Returns a span element.
-	 * @param innerHtml String List The span's property settings
-	 * @param innerText  String[] The sapn's text node children
-	 * @param elements String[] The span's children
-	 * @return String span*/
-	public String makeSpan(List<String> innerHtml, String[]innerText, String[]elements) {
-		String span = "<span ";
-		
-		if (null != innerHtml && innerHtml.size() > 0) {
-			int i = 0;
-			for (String item:innerHtml) {
-				if (i < (innerHtml.size() - 1)) {
-					span += item + " ";
-				} else {
-					span += item;
-				}
-				i++;
-			}
-		}
-		
-		span += "><br>";
-		
-		if (null != innerText && innerText.length > 0) {
-			int i = 0;
-			for (String item:innerText) {
-				if (i < (innerText.length - 1)) {
-					span += item + "<br>";
-				} else {
-					span += item;
-				}
-				i++;
-			}
-		}
-		
-		span += "<br>";
-		
-		if (null != elements && elements.length > 0) {
-			int i = 0;
-			for (String item:elements) {
-				if (i < (elements.length - 1)) {
-					span += item + "<br>";
-				} else {
-					span += item;
-				}
-				i++;
-			}
-		}
-		
-		span += "<br></span>";
-		
-		return span;
-	}
-	
-	/**Returns a span element.
-	 * @param innerHtml String[] The span's property settings
-	 * @param innerText  String[] The sapn's text node children
-	 * @param elements String[] The span's children
-	 * @return String span*/
-	public String makeSpan(String[] innerHtml, String[]innerText, String[]elements) {
-		String span = "<span ";
-		
-		if (null != innerHtml && innerHtml.length > 0) {
-			int i = 0;
-			for (String item:innerHtml) {
-				if (i < (innerHtml.length - 1)) {
-					span += item + " ";
-				} else {
-					span += item;
-				}
-				i++;
-			}
-		}
-		
-		span += "><br>";
-		
-		if (null != innerText && innerText.length > 0) {
-			int i = 0;
-			for (String item:innerText) {
-				if (i < (innerText.length - 1)) {
-					span += item + "<br>";
-				} else {
-					span += item;
-				}
-				i++;
-			}
-		}
-		
-		span += "<br>";
-		
-		if (null != elements && elements.length > 0) {
-			int i = 0;
-			for (String item:elements) {
-				if (i < (elements.length - 1)) {
-					span += item + "<br>";
-				} else {
-					span += item;
-				}
-				i++;
-			}
-		}
-		
-		span += "<br></span>";
-		
-		return span;
+		return newElement;
 	}
 	
 	/**Returns a head element.
