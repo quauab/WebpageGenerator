@@ -1,6 +1,6 @@
 # Generic Webpage Generator
 
-Generate a web page with content.
+Build a webpage piece by piece via generic HTML element generators. Class' HTML elements methods configures the element's properties via the arguments. And these methods can accept null or empty arguments.
 
 <h2>Dependencies</h2>
 <ul>
